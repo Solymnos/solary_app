@@ -13,30 +13,6 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
 const Tab = createBottomTabNavigator();
 
-function StreamersScreen() {
-  return (
-    <StreamersPage />
-  );
-}
-
-function SettingsScreen() {
-  return (
-    <SettingsPage />
-  );
-}
-
-function EsportScreen() {
-  return (
-    <EsportPage />
-  );
-}
-
-function MediasScreen() {
-  return (
-    <MediasPage />
-  );
-}
-
 function MyTabs() {
   return (
     <Tab.Navigator clas screenOptions={({ route }) =>({
@@ -49,25 +25,25 @@ function MyTabs() {
       },
       tabBarActiveTintColor : '#FBC600',
     })}>
-      <Tab.Screen name="Streams" component={StreamersScreen}
+      <Tab.Screen name="Streams" component={StreamersPage}
         options={{
           tabBarIcon : ({color, size}) => (
             <MaterialIcons name="live-tv" color={color} size={size} />
           )
         }}/>
-      <Tab.Screen name="Esport" component={EsportScreen} 
+      <Tab.Screen name="Esport" component={EsportPage} 
         options={{
           tabBarIcon : ({color, size}) => (
             <MaterialIcons name="sports-esports" color={color} size={size} />
           )
         }}/>
-      <Tab.Screen name="Medias" component={MediasScreen} 
+      <Tab.Screen name="Medias" component={MediasPage} 
         options={{
           tabBarIcon : ({color, size}) => (
             <MaterialIcons name="video-library" color={color} size={size} />
           )
         }}/>
-      <Tab.Screen name="Settings" component={SettingsScreen} 
+      <Tab.Screen name="Settings" component={SettingsPage} 
         options={{
           tabBarIcon : ({color, size}) => (
             <MaterialIcons name="settings" color={color} size={size} />
