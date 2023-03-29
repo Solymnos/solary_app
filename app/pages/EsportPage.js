@@ -1,15 +1,19 @@
 import React from 'react';
 import { Text, View, Image, ScrollView } from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 export default function EsportPage() {
     return (
       <View className="bg-black h-full">
-        <ScrollView className="bg-black p-5 pt-10 relative">
+        <Text className='color-white text-3xl mt-12 font-bold ml-6'>
+            Les équipes Solary
+        </Text>
+        <ScrollView className="bg-black p-5 relative">
         {
           esportData.map((data) => (
             <View className="w-full my-3">
-                <View className="bg-black absolute border border-gray-600 rounded-xl z-20 h-28 w-28 items-center">
-                    <Image style={{resizeMode:"contain"}} className="absolute bottom-0 h-24" source={require('../assets/players/Melonik.png')}/>
+                <View className="bg-black absolute border border-gray-600 rounded-xl z-20 h-28 w-28 items-center justify-center">
+                    <Image style={{resizeMode:"contain"}} className="h-24" source={data.logo}/>
                 </View>
                 <View className="border border-gray-600 w-max rounded-xl h-32 ml-8 mt-8 z-10">
                     <View className='ml-20 w-max h-full flex flex-row'>
@@ -21,8 +25,10 @@ export default function EsportPage() {
                                 {data.st_label}
                             </Text>
                         </View> 
-                        <View className=' border w-1/4 items-center'>
-                            <Image style={{resizeMode:"contain"}} className='h-12 w-12 mt-3 mr-2'source={data.logo}/>
+                        <View className='w-1/4 items-center pt-5'>
+                            <View>
+                                <MaterialCommunityIcons name="heart" color={'#ffffff'} size={35}/>
+                            </View>                         
                         </View>  
                     </View>
                 </View>
