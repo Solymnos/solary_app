@@ -4,25 +4,22 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 
 export default function EsportPage() {
     return (
-      <View className="bg-black h-full">
-        <Text className='color-white text-3xl mt-12 font-bold ml-6'>
+      <View className="bg-black h-full flex-1 px-4">
+        <Text className='color-white text-3xl mt-12 font-bold ml-6 mb-6'>
             Les équipes Solary
         </Text>
-        <ScrollView className="bg-black p-5 relative">
+        <ScrollView className="bg-black relative flex-1">
         {
           esportData.map((data) => (
             <View className="w-full my-3">
                 <View className="bg-black absolute border border-gray-600 rounded-xl z-20 h-28 w-28 items-center justify-center">
                     <Image style={{resizeMode:"contain"}} className="h-24" source={data.logo}/>
                 </View>
-                <View className="border border-gray-600 w-max rounded-xl h-32 ml-8 mt-8 z-10">
+                <View className="border border-gray-600 w-max rounded-xl h-24 ml-8 mt-8 z-10">
                     <View className='ml-20 w-max h-full flex flex-row'>
                         <View className='border w-3/4'>
                             <Text className='color-white text-2xl mt-2 ml-2 font-bold'>
                                 {data.label}
-                            </Text>
-                            <Text className='color-white text-base mt-2 ml-2'>
-                                {data.st_label}
                             </Text>
                         </View> 
                         <View className='w-1/4 items-center pt-5'>
