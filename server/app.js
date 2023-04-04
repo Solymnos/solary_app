@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const stuffRoutes = require('./routes/stuff');
+const { initStreamers } = require('./utils/TwitchUtils');
 
 mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mongodb.net/test', {
     useNewUrlParser : true,
@@ -20,5 +21,7 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/stuff', stuffRoutes);
+
+initStreamers();
 
 module.exports = app;
