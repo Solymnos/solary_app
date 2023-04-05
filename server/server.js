@@ -46,12 +46,4 @@ server.on('listening', () => {
     console.log('Listening on ' + bind);
 });
 
-// TEST 
-
-var sec = 5;
-var interval = sec * 1000;
-setInterval(function() {
-    //console.log("pic");
-}, interval)
-
 server.listen(port);

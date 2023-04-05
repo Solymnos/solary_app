@@ -1,12 +1,19 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const stuffRoutes = require('./routes/stuff');
-const { initStreamers } = require('./utils/TwitchUtils');
+const { initStreamers, getLiveStreamers } = require('./utils/TwitchUtils');
+const streamerRoutes = require('./routes/streamer');
 
 mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mongodb.net/test', {
     useNewUrlParser : true,
     useUnifiedTopology : true})
-    .then(() => console.log('Connexion à MongoDB réussie!'))
+    .then(() => {
+        console.log('Connexion à MongoDB réussie!');
+        initStreamers();
+        getLiveStreamers();
+        setInterval(function() {
+            getLiveStreamers();
+        }, 30 * 1000);
+    })
     .catch(() => console.log('Echec de la connexion à MongoDB'));
 
 const app = express();
@@ -20,8 +27,13 @@ app.use((req, res, next) => {
     next();
 });
 
-app.use('/api/stuff', stuffRoutes);
+//app.use('/api/stuff', stuffRoutes);
 
-initStreamers();
+app.use('/api/streamer', streamerRoutes);
+/*var sec = 5;
+var interval = sec * 1000;
+setInterval(function() {
+    //console.log("pic");
+}, interval)*/
 
 module.exports = app;
