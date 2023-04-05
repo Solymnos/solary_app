@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export let streamersData;
+export let streamersInfo;
 
 export async function apiGetInfo()
 {
@@ -9,7 +9,7 @@ export async function apiGetInfo()
         method : 'get',
         url : url
     });
-    streamersData = response.data;
+    streamersInfo = response.data;
     const delay = ms => new Promise(res => setTimeout(res, ms));
     await delay(5000);
 }
@@ -22,5 +22,17 @@ export async function getStreamersInfo()
         method : 'get',
         url : url
     });
-    streamersData = response.data;
+    streamersInfo = response.data;
+    return response.data;
+}
+
+export function getStreamersData()
+{
+    return streamersInfo;
+}
+
+export async function updateStreamersData()
+{
+    const res = await getStreamersInfo();
+    return res;
 }

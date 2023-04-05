@@ -2,15 +2,25 @@ import React, { useState } from 'react';
 import { Text, View, ScrollView, Image, TouchableOpacity, Linking, RefreshControl} from 'react-native';
 import TextTicker from 'react-native-text-ticker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { getStreamersInfo, streamersData } from '../utils/ApiUtils';
+import { getStreamersInfo, streamersInfo } from '../utils/ApiUtils';
 
 export default function StreamersPage() {
-    const [refreshing, setRefreshing ] = useState(false);
+
+    const [ refreshing , setRefreshing ] = useState(false);
+    const [ streamersData, setStreamerData ] = useState(streamersInfo);
+
+    function updateStreamersData()
+    {
+        getStreamersInfo();
+        console.log(streamersInfo);
+        setStreamerData(streamersInfo);
+    }
+
     return (
         <View className="bg-black h-full flex-1 px-4">
             <ScrollView className="bg-black relative flex-1"
             refreshControl={
-                <RefreshControl refreshing={refreshing} onRefresh={() => getStreamersInfo()}/>
+                <RefreshControl refreshing={refreshing} onRefresh={() => updateStreamersData()}/>
             }>
                 <Text className='color-white text-3xl mt-12 font-bold ml-6 mb-6'>
                     Streams en live !
