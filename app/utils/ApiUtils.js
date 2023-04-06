@@ -10,8 +10,8 @@ export async function apiGetInfo()
         url : url
     });
     streamersInfo = response.data;
-    const delay = ms => new Promise(res => setTimeout(res, ms));
-    await delay(5000);
+    //const delay = ms => new Promise(res => setTimeout(res, ms));
+    //await delay(5000);
 }
 
 export async function getStreamersInfo()
@@ -23,7 +23,9 @@ export async function getStreamersInfo()
         url : url
     });
     streamersInfo = response.data;
-    return response.data;
+    console.log('AXIOS RECEIVE');
+    console.log(streamersInfo);
+    return streamersInfo;
 }
 
 export function getStreamersData()

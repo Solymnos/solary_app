@@ -8,14 +8,13 @@ export default function StreamersPage() {
 
     const [ refreshing , setRefreshing ] = useState(false);
     const [ streamersData, setStreamerData ] = useState(streamersInfo);
+    const [ favStreamers, setFavStreamers ] = useState([]);
 
-    function updateStreamersData()
+    async function updateStreamersData()
     {
-        getStreamersInfo();
-        console.log(streamersInfo);
-        setStreamerData(streamersInfo);
+        const res = await getStreamersInfo();
+        setStreamerData(res);
     }
-
     return (
         <View className="bg-black h-full flex-1 px-4">
             <ScrollView className="bg-black relative flex-1"
@@ -26,7 +25,7 @@ export default function StreamersPage() {
                     Streams en live !
                 </Text>
                 {
-                    streamersData.filter(streams => streams.isUp == true).map((stream) =>
+                    streamersData.filter(streams => { return (streams.isUp == true && favStreamers.indexOf(streams.id) != -1) }).sort((a, b) => b.liveViewers - a.liveViewers).map((stream) =>
                         <TouchableOpacity onPress={() => { Linking.openURL('https://www.twitch.tv/' + stream.login.toLowerCase())}}>
                             <View className="w-full my-3 border border-gray-600 flex flex-row rounded-xl">
                                 <Image style={{resizeMode:"contain"}}  source={ { uri :  stream.iconUrl } } className='flex-none h-24 w-24 rounded-l-xl'/>
@@ -42,20 +41,48 @@ export default function StreamersPage() {
                                     </TextTicker>
                                 </View>
                                 <View className=' flex-none items-center justify-center w-12'>
-                                    <TouchableOpacity onPress={() => { console.log('like')}}>
-                                        <MaterialCommunityIcons name="heart" color={'#ffffff'} size={35}/>
-                                    </TouchableOpacity>                         
+                                    <TouchableOpacity onPress={() => {setFavStreamers(favStreamers.filter(item => item != stream.id))}}>
+                                        <MaterialCommunityIcons name="heart" color={'#FBC600'} size={30}/>
+                                    </TouchableOpacity>                        
                                 </View>
                             </View> 
                         </TouchableOpacity>
                         
-                    )      
+                    )
+                }
+                {
+                    streamersData.filter((streams) => {
+                        return (streams.isUp == true && favStreamers.indexOf(streams.id) == -1)
+                    }).sort((a, b) => b.liveViewers - a.liveViewers).map((stream) =>
+                        <TouchableOpacity onPress={() => { Linking.openURL('https://www.twitch.tv/' + stream.login.toLowerCase())}}>
+                            <View className="w-full my-3 border border-gray-600 flex flex-row rounded-xl">
+                                <Image style={{resizeMode:"contain"}}  source={ { uri :  stream.iconUrl } } className='flex-none h-24 w-24 rounded-l-xl'/>
+                                <View className='flex flex-col flex-grow'>
+                                    <Text className='color-white text-2xl ml-2 mt-1 font-bold'>
+                                        {stream.name}
+                                    </Text>
+                                    <Text className='color-white ml-2 font-bold text-xs'>
+                                        stream sur <Text className='color-primary'> {stream.liveGame}</Text>
+                                    </Text>
+                                    <TextTicker loop duration={12000} marqueeDelay={1000} repeatSpacer={50} className='color-white ml-2 font-bold text-ms w-48'>
+                                        {stream.liveTitle}
+                                    </TextTicker>
+                                </View>
+                                <View className=' flex-none items-center justify-center w-12'>
+                                    <TouchableOpacity onPress={() => {setFavStreamers(favStreamers => [...favStreamers, stream.id])}}>
+                                        <MaterialCommunityIcons name="heart" color={'#ffffff'} size={30}/>
+                                    </TouchableOpacity>                       
+                                </View>
+                            </View> 
+                        </TouchableOpacity>
+                        
+                    )
                 }
                 <Text className='color-white text-3xl mt-6 font-bold ml-6 mb-6'>
                     Streams AFK !
                 </Text>
                 {
-                    streamersData.filter(streams => streams.isUp == false).map((stream) =>
+                    streamersData.filter((streams) => { return (streams.isUp == false && favStreamers.indexOf(streams.id) != -1)}).map((stream) =>
                         <View className="w-full my-3 border border-gray-600 flex flex-row rounded-xl">
                             <Image style={{resizeMode:"contain", opacity: 0.35}}  source={ { uri :  stream.iconUrl } } className='flex-none h-24 w-24 rounded-l-xl'/>
                             <View className='flex flex-col flex-grow'>
@@ -64,9 +91,26 @@ export default function StreamersPage() {
                                 </Text>
                             </View>
                             <View className=' flex-none items-center justify-center w-12'>
-                            <View>
-                                <MaterialCommunityIcons name="heart" color={'#ffffff'} size={35}/>
-                            </View>                         
+                                <TouchableOpacity onPress={() => {setFavStreamers(favStreamers.filter(item => item != stream.id))}}>
+                                    <MaterialCommunityIcons name="heart" color={'#FBC600'} size={30}/>
+                                </TouchableOpacity> 
+                            </View>
+                        </View> 
+                    )      
+                }
+                {
+                    streamersData.filter((streams) => { return (streams.isUp == false && favStreamers.indexOf(streams.id) == -1)}).map((stream) =>
+                        <View className="w-full my-3 border border-gray-600 flex flex-row rounded-xl">
+                            <Image style={{resizeMode:"contain", opacity: 0.35}}  source={ { uri :  stream.iconUrl } } className='flex-none h-24 w-24 rounded-l-xl'/>
+                            <View className='flex flex-col flex-grow'>
+                                <Text className='text-opacity-30 color-white text-2xl ml-2 mt-1 font-bold'>
+                                    {stream.name}
+                                </Text>
+                            </View>
+                            <View className=' flex-none items-center justify-center w-12'>
+                                <TouchableOpacity onPress={() => {setFavStreamers(favStreamers => [...favStreamers, stream.id])}}>
+                                    <MaterialCommunityIcons name="heart" color={'#ffffff'} size={30}/>
+                                </TouchableOpacity>         
                         </View>
                         </View> 
                     )      

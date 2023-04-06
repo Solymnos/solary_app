@@ -8,6 +8,7 @@ const streamerSchema = mongoose.Schema({
     iconUrl : { type : String, required : true },
     liveTitle : { type : String, required : false },
     liveGame : { type : String, required : false },
+    liveViewers : { type : Number, required : false}
 });
 
 module.exports = mongoose.model('Streamer', streamerSchema);

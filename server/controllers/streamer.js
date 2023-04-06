@@ -27,22 +27,24 @@ exports.updateStreamer = async (id, login, name, iconUrl) =>
     });
 };
 
-exports.updateStreamerIsOnLive = async (id, login, name, liveTitle, liveGame) =>
+exports.updateStreamerIsOnLive = async (id, login, name, liveTitle, liveGame, liveViewers) =>
 {
-    console.log('update for ' + name);
     const res = await Streamer.updateOne({ id : id }, {
         id : id,
         login : login,
         name : name,
         isUp : true,
         liveTitle : liveTitle,
-        liveGame : liveGame
+        liveGame : liveGame,
+        liveViewers : liveViewers
     });
 };
 
 exports.getAllStreamersData = (req, res, next) => {
     Streamer.find().then(
         (streamers) => {
+            console.log("SEND THIS INFO");
+            console.log(streamers);
             res.status(200).json(streamers);
         }
     ).catch(
