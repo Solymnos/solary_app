@@ -1,8 +1,15 @@
 import axios from 'axios';
 
 export let streamersInfo;
+export let teamsInfo;
 
-export async function apiGetInfo()
+export async function initAPIInfos()
+{
+    await updateStreamersInfo();
+    await updateTeamsInfo();
+}
+
+export async function updateStreamersInfo()
 {
     var url = 'http://10.0.2.2:3003/api/streamer';
     var response = await axios({
@@ -10,31 +17,16 @@ export async function apiGetInfo()
         url : url
     });
     streamersInfo = response.data;
-    //const delay = ms => new Promise(res => setTimeout(res, ms));
-    //await delay(5000);
+    return(streamersInfo);
 }
 
-export async function getStreamersInfo()
+export async function updateTeamsInfo()
 {
-    console.log("refresh info");
-    var url = 'http://10.0.2.2:3003/api/streamer';
+    var url = 'http://10.0.2.2:3003/api/teams';
     var response = await axios({
         method : 'get',
         url : url
     });
-    streamersInfo = response.data;
-    console.log('AXIOS RECEIVE');
-    console.log(streamersInfo);
-    return streamersInfo;
-}
-
-export function getStreamersData()
-{
-    return streamersInfo;
-}
-
-export async function updateStreamersData()
-{
-    const res = await getStreamersInfo();
-    return res;
+    teamsInfo = response.data;
+    return(teamsInfo);
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import LoadingPage from './pages/LoadingPage';
-import { apiGetInfo } from './utils/ApiUtils';
+import { initAPIInfos } from './utils/ApiUtils';
 import { View, Text } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
@@ -59,7 +59,7 @@ export default function App() {
 
   useEffect(() => {
     async function prepare() {
-      await apiGetInfo();
+      await initAPIInfos();
       setAppIsReady(true);
     }
 

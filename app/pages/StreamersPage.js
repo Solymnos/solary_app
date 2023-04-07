@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Text, View, ScrollView, Image, TouchableOpacity, Linking, RefreshControl} from 'react-native';
 import TextTicker from 'react-native-text-ticker';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import { getStreamersInfo, streamersInfo } from '../utils/ApiUtils';
+import { updateStreamersInfo, streamersInfo } from '../utils/ApiUtils';
 
 export default function StreamersPage() {
 
@@ -12,7 +12,7 @@ export default function StreamersPage() {
 
     async function updateStreamersData()
     {
-        const res = await getStreamersInfo();
+        const res = await updateStreamersInfo();
         setStreamerData(res);
     }
     return (

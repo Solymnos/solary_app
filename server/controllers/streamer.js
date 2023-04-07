@@ -43,8 +43,6 @@ exports.updateStreamerIsOnLive = async (id, login, name, liveTitle, liveGame, li
 exports.getAllStreamersData = (req, res, next) => {
     Streamer.find().then(
         (streamers) => {
-            console.log("SEND THIS INFO");
-            console.log(streamers);
             res.status(200).json(streamers);
         }
     ).catch(

@@ -26,6 +26,8 @@ export default function SettingsPage() {
         data={data}
         save="value"
         search={false}
+        inputStyles={{'color' : 'white'}}
+        dropdownTextStyles={{'color' : 'white'}}
       />
     </View>
   );
