@@ -1,17 +1,59 @@
 import React from "react";
-import { Text, View } from 'react-native';
+import { Image, ScrollView, Text, View, ViewBase } from 'react-native';
 
 export default function Players({staffs, players}) {
 
-    console.log(staffs);
-    console.log(players);
+    let Staffs;
+    let Players;
+
+    if (staffs.length > 0)
+    {
+        Staffs = (
+            <View className="mt-4"> 
+                <Text className="text-white font-bold text-2xl mb-2 ml-3">Staff</Text>
+                <View className="flex flex-wrap flex-row">
+                {
+                    staffs.map((staff) => (
+                        <View className="w-1/2 justify-center items-center py-2">
+                            <Image style={{resizeMode:"contain"}} className='h-36 w-36' source={{uri : staff.icon }}/>
+                            <Text className="text-white font-bold text-xl">{staff.name}</Text>
+                            <Text className="text-white text-xl">{staff.role}</Text>
+                        </View>
+                    ))
+                }
+                </View>
+            </View>
+        )
+    } else {
+        Staffs = null
+    }
+
+    if (players.length > 0)
+    {
+        Players = (
+            <View> 
+                <Text className="text-white font-bold text-2xl mb-2 ml-3">Joueurs</Text>
+                <View className="flex flex-wrap flex-row">
+                {
+                    players.map((player) => (
+                        <View className="w-1/2 justify-center items-center py-2">
+                            <Image style={{resizeMode:"contain"}} className='h-36 w-36' source={{uri : player.icon }}/>
+                            <Text className="text-white font-bold text-xl">{player.name}</Text>
+                            <Text className="text-white text-xl">{player.role}</Text>
+                        </View>
+                    ))
+                }
+                </View>
+            </View>
+        )
+    } else {
+        Players = null
+    }
+
     return (
-        <View>
-            {
-                staffs.map((staff) => {
-                    <Text className="text-black">{staff.name}</Text>
-                })
-            }
-        </View>
+        <ScrollView className="h-full w-full relative flex-1">
+            {Players}
+            {Staffs}
+        </ScrollView>
     )
 }

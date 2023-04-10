@@ -80,9 +80,7 @@ function TeamDetails({navigation})
   } else if (selectContent == 'equipe')
   {
     Content = (
-      <Text>
         <Players staffs={focusTeam.staffs} players={focusTeam.players}/>
-      </Text>
     )
   }
 
@@ -94,7 +92,7 @@ function TeamDetails({navigation})
             {focusTeam.name}
         </Text>
       </View>
-      <View className="flex flex-grow bg-pink-400">
+      <View className="flex flex-grow">
         {Content}
       </View>
       <View className="flex-row h-16 justify-center items-center pt-4"> 
