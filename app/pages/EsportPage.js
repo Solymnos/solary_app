@@ -5,6 +5,7 @@ import { teamsInfo } from '../utils/ApiUtils';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SelectList } from 'react-native-dropdown-select-list';
+import Players from '../components/Players';
 
 let focusTeamId;
 
@@ -51,7 +52,79 @@ function TeamHomeScreen({navigation})
   )
 }
 
-function TeamScreen({navigation})
+function TeamDetails({navigation})
+{
+  const [ teamsData, setTeamsData ] = useState(teamsInfo);
+  const [ selectCompetition, setSelectCompetition ] = useState('');
+  const [ selectContent, setSelectContent ] = useState('matchs');
+
+  let focusTeam = teamsData.find(x => x.id == focusTeamId);
+  let Content;
+  
+  console.log(focusTeam);
+
+  if (selectContent == 'matchs')
+  {
+    Content = (
+      <Text>
+        matchs
+      </Text>
+    )
+  } else if (selectContent == 'classements')
+  {
+    Content = (
+      <Text>
+        classements
+      </Text>
+    )
+  } else if (selectContent == 'equipe')
+  {
+    Content = (
+      <Text>
+        <Players staffs={focusTeam.staffs} players={focusTeam.players}/>
+      </Text>
+    )
+  }
+
+  return (
+    <View className="bg-black h-full flex-1 px-4">
+      <View className="flex-row mt-12 mb-6 justify-content text-center items-center">
+        <Image style={{resizeMode:"contain"}}  source={ { uri :  focusTeam.icon } } className='w-12 h-12'/>
+        <Text className='color-white text-3xl font-bold ml-6 '>
+            {focusTeam.name}
+        </Text>
+      </View>
+      <View className="flex flex-grow bg-pink-400">
+        {Content}
+      </View>
+      <View className="flex-row h-16 justify-center items-center pt-4"> 
+        <TouchableHighlight className="h-full w-28 items-center mx-auto" onPress={() => { setSelectContent('matchs')}}>
+          <View className="border border-gray-600 flex flex-row rounded-xl h-2/3 w-full justify-center items-center">
+            <Text className="text-white">
+              Matchs
+            </Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight className="h-full mx-auto w-28" onPress={() => { setSelectContent('classements')}}>
+          <View className="border border-gray-600 flex flex-row rounded-xl h-2/3 w-full justify-center items-center">
+            <Text className="text-white">
+              Classements
+            </Text>
+          </View>
+        </TouchableHighlight>
+        <TouchableHighlight className="h-full w-28 mx-auto" onPress={() => { setSelectContent('equipe')}}>
+          <View className="border border-gray-600 flex flex-row rounded-xl h-2/3 w-full justify-center items-center">
+            <Text className="text-white">
+              L'équipe
+            </Text>
+          </View>
+        </TouchableHighlight>
+      </View>
+    </View>
+  )
+}
+
+/*function TeamScreen({navigation})
 {
   const [ teamsData, setTeamsData ] = useState(teamsInfo);
   const [ selectCompetition, setSelectCompetition ] = useState('');
@@ -71,6 +144,7 @@ function TeamScreen({navigation})
     { key : '2', value:'Streamers Like' },
     { key : '3', value:'Aucunes' },
   ]
+
   console.log(data);
   return (
     <View className="bg-black h-full flex-1 px-4">
@@ -90,7 +164,7 @@ function TeamScreen({navigation})
         />
     </View>
   )
-}
+}*/
 
 const rootStack = createStackNavigator();
 
@@ -103,26 +177,10 @@ export default function EsportPage()
             <rootStack.Screen name="Home" component = { TeamHomeScreen }/>
           </rootStack.Group>
           <rootStack.Group screenOptions={{ presentation : 'modal'}}>
-            <rootStack.Screen name="TeamDetails"  component={TeamScreen} />
+            <rootStack.Screen name="TeamDetails"  component={TeamDetails} />
           </rootStack.Group>
         </rootStack.Navigator>
       </NavigationContainer>
       
     );
 }
-/// <Image style={{resizeMode: "contain"}} source={require('../assets/lfllogo.png')} className="h-20 my-4"/>
-
-// <Image className="rounded-t-lg" source={require('../assets/slylogo.png')} alt=''/>
-
-/*
-<View className="border border-secondary rounded-xl shadow w-full flex-col my-3">
-    <View className="flex flex-col">
-        <View className="bg-secondary w-1/2 relative float-left rounded-xl items-center justify-center">
-            <Image style={{resizeMode:"contain"}} className="h-24" source={data.img}/>
-        </View>
-        <View className="h-10 w-1/2 relative float-right rounded-tr-xl">
-            <Text className="text-white">{data.label}</Text>
-        </View>
-    </View>
-</View>
-*/

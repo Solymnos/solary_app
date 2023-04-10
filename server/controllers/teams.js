@@ -12,7 +12,11 @@ exports.initTeams = async() =>
             const team = new Teams({
                 id : data[i].id,
                 name : data[i].name,
-                icon : data[i].icon
+                icon : data[i].icon,
+                competition : data[i].competitions,
+                players : data[i].players,
+                staffs : data[i].staffs,
+                games : data[i].games
             });
             const res = await team.save();
         } else {
@@ -20,7 +24,10 @@ exports.initTeams = async() =>
                 id : data[i].id,
                 name : data[i].name,
                 icon : data[i].icon,
-                competitions : data[i].competition
+                competitions : data[i].competitions,
+                players : data[i].players,
+                staffs : data[i].staffs,
+                games : data[i].games
             })
         }
     }
