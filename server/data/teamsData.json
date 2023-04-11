@@ -8,7 +8,7 @@
         },{
             "name" : "Competition 2"    
         },{
-            "name" : "Competition 3"    
+            "name" : "Competition 3A"    
         }],
         "players" : [{
             "name" : "Joueur 1",
@@ -36,38 +36,48 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : [{
+                    "name" : "Glutonny",
+                    "classement" : "Top 1"
+                }, {
+                    "name" : "Léon",
+                    "classement" : "Top 2"
+                }],
+                "competition" : "Pound",
+                "type" : "BO1",
+                "tournament_icon" : "https://liquipedia.net/commons/images/4/4b/Pound2022_logo.jpg",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "1",
         "name" : "Fortnite",
@@ -93,38 +103,41 @@
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
         "staffs" : [],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "2",
         "name" : "Hearthstone",
@@ -158,38 +171,41 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "3",
         "name" : "SSBU",
@@ -211,38 +227,41 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "4",
         "name" : "TFT",
@@ -276,38 +295,41 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "5",
         "name" : "Dofus",
@@ -341,38 +363,41 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "6",
         "name" : "DBFZ",
@@ -406,38 +431,41 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "7",
         "name" : "Rocket League",
@@ -471,38 +499,41 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "8",
         "name" : "Trackmania",
@@ -536,38 +567,41 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     },{
         "id" : "9",
         "name" : "Valorant",
@@ -601,37 +635,40 @@
             "role" : "Head Coach",
             "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
         }],
-        "games" : [{
-            "incoming" : [{
+        "results" : [
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Karmine Corp",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Vitality",
-                "competition" : "LFL",
-                "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }],
-            "passed" : [{
-                "team_1_name" : "Solary",
-                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
                 "team_1_score" : "1",
                 "team_2_score" : "0",
-                "team_1_res" : "Win",
-                "team_2_res" : "Lose",
+                "SLYWIN" : true,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            },{
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
                 "team_1_name" : "Solary",
                 "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
                 "competition" : "LFL",
                 "type" : "BO1",
-                "date" : "15-12-2023-20h"
-            }]
-        }]
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : "Solary",
+                "tournament_name" : "Karmine Corp",
+                "type" : "BO1",
+                "date" : "1702666800"
+            }
+        ]
     }
 ]

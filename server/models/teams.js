@@ -7,7 +7,7 @@ const teamsSchema = mongoose.Schema({
     competitions : [],
     players : [],
     staffs : [],
-    games : []
+    results : []
 });
 
 module.exports = mongoose.model('Teams', teamsSchema);

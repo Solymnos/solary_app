@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { SelectList } from 'react-native-dropdown-select-list';
 import Players from '../components/Players';
+import Results from '../components/Results';
 
 let focusTeamId;
 
@@ -60,15 +61,12 @@ function TeamDetails({navigation})
 
   let focusTeam = teamsData.find(x => x.id == focusTeamId);
   let Content;
-  
-  console.log(focusTeam);
 
   if (selectContent == 'matchs')
   {
+    console.log(focusTeam)
     Content = (
-      <Text>
-        matchs
-      </Text>
+        <Results results={focusTeam.results}/>
     )
   } else if (selectContent == 'classements')
   {

@@ -16,7 +16,7 @@ exports.initTeams = async() =>
                 competition : data[i].competitions,
                 players : data[i].players,
                 staffs : data[i].staffs,
-                games : data[i].games
+                results : data[i].results
             });
             const res = await team.save();
         } else {
@@ -27,7 +27,7 @@ exports.initTeams = async() =>
                 competitions : data[i].competitions,
                 players : data[i].players,
                 staffs : data[i].staffs,
-                games : data[i].games
+                results : data[i].results
             })
         }
     }
