@@ -37,7 +37,7 @@ export default function Players({staffs, players}) {
                 {
                     players.map((player) => (
                         <View className="w-1/2 justify-center items-center py-2">
-                            <Image style={{resizeMode:"contain"}} className='h-36 w-36' source={{uri : player.icon }}/>
+                            <Image style={{resizeMode:"contain"}} className='h-44 w-44' source={{uri : player.icon }}/>
                             <Text className="text-white font-bold text-xl">{player.name}</Text>
                             <Text className="text-white text-xl">{player.role}</Text>
                         </View>
