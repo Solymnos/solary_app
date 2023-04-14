@@ -4,6 +4,8 @@ const { initStreamers, getLiveStreamers } = require('./utils/TwitchUtils');
 const streamerRoutes = require('./routes/streamer');
 const teamsRoutes = require('./routes/teams');
 const teamsCtrl = require('./controllers/teams');
+const progRoutes = require('./routes/prog');
+const progCtrl = require('./controllers/prog');
 
 mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mongodb.net/test', {
     useNewUrlParser : true,
@@ -12,6 +14,7 @@ mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mon
         console.log('Connexion à MongoDB réussie!');
         initStreamers();
         await teamsCtrl.initTeams();
+        await progCtrl.initProg();
         getLiveStreamers();
         setInterval(function() {
             getLiveStreamers();
@@ -34,6 +37,7 @@ app.use((req, res, next) => {
 
 app.use('/api/streamer', streamerRoutes);
 app.use('/api/teams', teamsRoutes);
+app.use('/api/prog', progRoutes);
 /*var sec = 5;
 var interval = sec * 1000;
 setInterval(function() {

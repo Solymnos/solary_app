@@ -10,12 +10,12 @@ export default function Players({staffs, players}) {
     {
         Staffs = (
             <View className="mt-4"> 
-                <Text className="text-white font-bold text-2xl mb-2 ml-3">Staff</Text>
+                <Text className="text-white font-bold text-2xl mb-2 ml-3 border-b-2 border-primary">Staff</Text>
                 <View className="flex flex-wrap flex-row">
                 {
                     staffs.map((staff) => (
                         <View className="w-1/2 justify-center items-center py-2">
-                            <Image style={{resizeMode:"contain"}} className='h-36 w-36' source={{uri : staff.icon }}/>
+                            <Image style={{resizeMode:"contain"}} className='h-44 w-44' source={{uri : staff.icon }}/>
                             <Text className="text-white font-bold text-xl">{staff.name}</Text>
                             <Text className="text-white text-xl">{staff.role}</Text>
                         </View>
@@ -32,7 +32,7 @@ export default function Players({staffs, players}) {
     {
         Players = (
             <View> 
-                <Text className="text-white font-bold text-2xl mb-2 ml-3">Joueurs</Text>
+                <Text className="text-white font-bold text-2xl mb-2 ml-3 border-b-2 border-primary">Joueurs</Text>
                 <View className="flex flex-wrap flex-row">
                 {
                     players.map((player) => (

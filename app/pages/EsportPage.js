@@ -16,7 +16,7 @@ function TeamHomeScreen({navigation})
 
   return (
     <View className="bg-black h-full flex-1 px-4">
-      <Text className='color-white text-3xl mt-12 font-bold ml-6 mb-6'>
+      <Text className='color-white text-3xl mt-12 font-bold ml-6 mb-6 '>
           Les équipes Solary
       </Text>
       <ScrollView className="bg-black relative flex-1">
@@ -57,12 +57,12 @@ function TeamDetails({navigation})
 {
   const [ teamsData, setTeamsData ] = useState(teamsInfo);
   const [ selectCompetition, setSelectCompetition ] = useState('');
-  const [ selectContent, setSelectContent ] = useState('matchs');
+  const [ selectContent, setSelectContent ] = useState('results');
 
   let focusTeam = teamsData.find(x => x.id == focusTeamId);
   let Content;
 
-  if (selectContent == 'matchs')
+  if (selectContent == 'results')
   {
     console.log(focusTeam)
     Content = (
@@ -94,10 +94,10 @@ function TeamDetails({navigation})
         {Content}
       </View>
       <View className="flex-row h-16 justify-center items-center pt-4"> 
-        <TouchableHighlight className="h-full w-28 items-center mx-auto" onPress={() => { setSelectContent('matchs')}}>
+        <TouchableHighlight className="h-full w-28 items-center mx-auto" onPress={() => { setSelectContent('results')}}>
           <View className="border border-gray-600 flex flex-row rounded-xl h-2/3 w-full justify-center items-center">
             <Text className="text-white">
-              Matchs
+              Résultats
             </Text>
           </View>
         </TouchableHighlight>

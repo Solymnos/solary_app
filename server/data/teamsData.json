@@ -76,6 +76,45 @@
                 "type" : "BO1",
                 "tournament_icon" : "https://liquipedia.net/commons/images/4/4b/Pound2022_logo.jpg",
                 "date" : "1702666800"
+            },{
+                "style" : "oppo",
+                "team_1_name" : "Solary",
+                "team_2_name" : "Karmine Corp",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "1",
+                "team_2_score" : "0",
+                "SLYWIN" : true,
+                "competition" : "LFL",
+                "type" : "BO1",
+                "date" : "1702666800"
+            },
+            {
+                "style" : "oppo",
+                "team_1_name" : "Solary",
+                "team_2_name" : "Vitality",
+                "team_1_icon" : "https://d2ix1vn492wbxl.cloudfront.net/stream/82b1b361-c3e0-488d-b4f1-66e22f9e389d.png",
+                "team_2_icon" : "https://liquipedia.net/commons/images/thumb/8/81/Karmine_Corp_darkmode.png/600px-Karmine_Corp_darkmode.png",
+                "team_1_score" : "0",
+                "team_2_score" : "1",
+                "SLYWIN" : false,
+                "competition" : "LFL",
+                "type" : "BO1",
+                "date" : "1702666800"
+            },
+            {
+                "style" : "tournament",
+                "players" : [{
+                    "name" : "Glutonny",
+                    "classement" : "Top 1"
+                }, {
+                    "name" : "Léon",
+                    "classement" : "Top 2"
+                }],
+                "competition" : "Pound",
+                "type" : "BO1",
+                "tournament_icon" : "https://liquipedia.net/commons/images/4/4b/Pound2022_logo.jpg",
+                "date" : "1702666800"
             }
         ]
     },{

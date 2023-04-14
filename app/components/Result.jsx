@@ -75,11 +75,10 @@ export default function Result({result})
             </View>
         )
     } else {
-        return
-        {
+        return (
             <Text className="text-green-500">
                 {result.style}
             </Text>
-        }
+        )
     }
 }

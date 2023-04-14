@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
 import StreamersPage from './pages/StreamersPage';
 import EsportPage from './pages/EsportPage';
-import MediasPage from './pages/MediasPage';
+import ProgPage from './pages/ProgPage';
 import SettingsPage from './pages/SettingsPage';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 
@@ -37,10 +37,10 @@ function MyTabs() {
             <MaterialIcons name="sports-esports" color={color} size={size} />
           )
         }}/>
-      <Tab.Screen name="Medias" component={MediasPage} 
+      <Tab.Screen name="Programme" component={ProgPage} 
         options={{
           tabBarIcon : ({color, size}) => (
-            <MaterialIcons name="video-library" color={color} size={size} />
+            <MaterialIcons name="calendar-today" color={color} size={size} />
           )
         }}/>
       <Tab.Screen name="Settings" component={SettingsPage} 
