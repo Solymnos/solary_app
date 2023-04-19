@@ -4,7 +4,6 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import { teamsInfo } from '../utils/ApiUtils';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
-import { SelectList } from 'react-native-dropdown-select-list';
 import Players from '../components/Players';
 import Results from '../components/Results';
 
