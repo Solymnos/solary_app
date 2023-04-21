@@ -24,7 +24,7 @@ exports.initProg = async() =>
                     game_icon : data[i].game_icon
                 });
                 const res = await prog.save();
-            } else {
+            } else if (data[i].style == "tournament") {
                 const prog = new Prog({
                     id : data[i].id,
                     style : data[i].style,
@@ -37,7 +37,8 @@ exports.initProg = async() =>
                 });
                 const res = prog.save();
             }
-        } else {
+        } else 
+        {
             if (data[i].style == "oppo")
             {
                 const res = await Prog.updateOne({ id : data[i].id }, {
@@ -52,8 +53,8 @@ exports.initProg = async() =>
                     game : data[i].game,
                     game_icon : data[i].game_icon
                 })
-            } else {
-                const res = await Prog(updateOne({ id : data[i].id }, {
+            } else if (data[i].style == "tournament") {
+                const res = await Prog.updateOne({ id : data[i].id }, {
                     id : data[i].id,
                     style : data[i].style,
                     date : data[i].date,
@@ -62,7 +63,7 @@ exports.initProg = async() =>
                     tournament_icon : data[i].tournament_icon,
                     game : data[i].game,
                     game_icon : data[i].game_icon
-                }))
+                })
             }
         }
     }
