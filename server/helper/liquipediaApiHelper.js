@@ -9,9 +9,18 @@ function getValorantUpcomingMatches()
     const dom = new JSDOM(htmlString);
     
     const matches_data = dom.window.document.getElementsByClassName('infobox_matches_content');
-    for (let i = 0; i < matches_data.length; i++)
+    for (let i = 0; i < matches_data.length - 1; i++)
     {
-        console.log(matches_data[i].textContent);
+        
+
+        let team_left_name = matches_data[i].querySelector('.team-left .team-template-team-short .team-template-text a').textContent;
+        let team_left_icon = 'https://liquipedia.net' + matches_data[i].querySelector('.team-left .team-template-team-short .team-template-image-icon.darkmode a img').getAttribute('src');
+        let team_right_name = matches_data[i].querySelector('.team-right .team-template-team-short .team-template-text a').textContent;
+        let team_right_icon = 'https://liquipedia.net' + matches_data[i].querySelector('.team-right .team-template-team-short .team-template-image-icon.darkmode a img').getAttribute('src');
+        let format = matches_data[i].querySelector('.versus div abbr').textContent;
+        let competition = matches_data[i].querySelector('.match-filler div div a').textContent;
+        let date = matches_data[i].querySelector('.match-filler .match-countdown .timer-object.timer-object-countdown-only').getAttribute('data-timestamp');
+        console.log(competition);
     }
     console.log("Valorant parsing over");
 }
