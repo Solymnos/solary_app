@@ -6,6 +6,9 @@ const teamsRoutes = require('./routes/teams');
 const teamsCtrl = require('./controllers/teams');
 const progRoutes = require('./routes/prog');
 const progCtrl = require('./controllers/prog');
+const liquipediaApiHelper = require('./helper/liquipediaApiHelper');
+
+liquipediaApiHelper.getValorantUpcomingMatches();
 
 mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mongodb.net/test', {
     useNewUrlParser : true,
