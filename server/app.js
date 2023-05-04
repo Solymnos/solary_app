@@ -4,11 +4,11 @@ const { initStreamers, getLiveStreamers } = require('./utils/TwitchUtils');
 const streamerRoutes = require('./routes/streamer');
 const teamsRoutes = require('./routes/teams');
 const teamsCtrl = require('./controllers/teams');
-const progRoutes = require('./routes/prog');
-const progCtrl = require('./controllers/prog');
+const matchRoutes = require('./routes/match');
+const resultsRoutes = require('./routes/result');
 const liquipediaApiHelper = require('./helper/liquipediaApiHelper');
 
-liquipediaApiHelper.getValorantUpcomingMatches();
+
 
 mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mongodb.net/test', {
     useNewUrlParser : true,
@@ -17,11 +17,14 @@ mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mon
         console.log('Connexion à MongoDB réussie!');
         initStreamers();
         await teamsCtrl.initTeams();
-        await progCtrl.initProg();
         getLiveStreamers();
         setInterval(function() {
             getLiveStreamers();
         }, 30 * 1000);
+
+        await liquipediaApiHelper.getValorantUpcomingMatches();
+        await liquipediaApiHelper.getValorantResults();
+        await liquipediaApiHelper.getValorantRanking();
     })
     .catch(() => console.log('Echec de la connexion à MongoDB'));
 
@@ -40,7 +43,8 @@ app.use((req, res, next) => {
 
 app.use('/api/streamer', streamerRoutes);
 app.use('/api/teams', teamsRoutes);
-app.use('/api/prog', progRoutes);
+app.use('/api/match', matchRoutes);
+app.use('/api/result', resultsRoutes);
 /*var sec = 5;
 var interval = sec * 1000;
 setInterval(function() {
