@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Braah+One&display=swap');
+
+.App {
+  background-color: #070707;
+  width:100vw;
+  height:100vh;
+  display : flex;
+  flex-direction : column;
+}
+
+.Header {
+  height : min-content;
+  padding-right : 25px;
+  padding-left : 25px;
+  color : #440000;
+}
+
+select {
+  width: 100%;
+  text-align : center;
+  font-size : 40px;
+  display : flex;
+  marging-left : auto;
+  margin-right : auto;
+  padding: 12px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+  color: #fff;
+  background-color: transparent;
+  appearance: none;
+  border-radius : 15px;
+  margin-top : 20px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Style pour chaque option */
+select option {
+  padding: 12px;
+  color: #fff;
+  background-color: #222;
+  background-repeat: no-repeat;
+  background-position: 8px center;
+}
+
+/* Style pour l'option sélectionnée */
+select option:checked {
+  background-color: #444;
+}
+
+.ViewsChoice {
+  color : #fff;
+  display : flex;
+  flex-orientation : row;
+}
+
+.View {
+  flex-grow : 1;
+  border: 2px solid #fff;
+  border-radius : 10px;
+  margin : 25px;
+  padding-top : 15px;
+  padding-bottom : 15px;
+  text-align : center;
+  font-size : 24px;
+}
