@@ -1,0 +1,53 @@
+[
+    {
+        "id" : 0,
+        "link" : "lol/",
+        "name" : "League of Legends",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 1,
+        "link" : "fortnite/",
+        "name" : "Fortnite",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 2,
+        "link" : "hearthstone/",
+        "name" : "Hearthstone",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 3,
+        "link" : "ssbu/",
+        "name" : "SSBU",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 4,
+        "link" : "tft/",
+        "name" : "TFT",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 5,
+        "link" : "dofus/",
+        "name" : "Dofus",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 6,
+        "link" : "dbfz/",
+        "name" : "DBFZ",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 7,
+        "link" : "rl/",
+        "name" : "Rocket League",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 8,
+        "link" : "trackmania/",
+        "name" : "Trackmania",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    },{
+        "id" : 9,
+        "link" : "valorant/",
+        "name" : "Valorant",
+        "icon" : "https://cdn.icon-icons.com/icons2/3053/PNG/512/league_of_legends_macos_bigsur_icon_190030.png"
+    }
+]

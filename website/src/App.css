@@ -1,35 +1,50 @@
-@import url('https://fonts.googleapis.com/css2?family=Braah+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Braah+One&display=swap");
 
 .App {
   background-color: #070707;
-  width:100vw;
-  height:100vh;
-  display : flex;
-  flex-direction : column;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 .Header {
-  height : min-content;
-  padding-right : 25px;
-  padding-left : 25px;
-  color : #440000;
+  display: flex;
+  flex-direct: row;
+  height: min-content;
+  padding-right: 25px;
+  padding-left: 25px;
+  color: #440000;
+}
+
+.HeaderButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  border: 2px solid #fff;
+  border-radius: 15px;
+  color: #fff;
+  margin-left: 25px;
+  margin-top: 20px;
+  width: 2em;
 }
 
 select {
-  width: 100%;
-  text-align : center;
-  font-size : 40px;
-  display : flex;
-  marging-left : auto;
-  margin-right : auto;
+  display: flex;
+  flex-grow: 1;
+  text-align: center;
+  font-size: 40px;
+  display: flex;
+  marging-left: auto;
+  margin-right: auto;
   padding: 12px;
   border: 2px solid #fff;
-  border-radius: 4px;
   color: #fff;
   background-color: transparent;
   appearance: none;
-  border-radius : 15px;
-  margin-top : 20px;
+  border-radius: 15px;
+  margin-top: 20px;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
@@ -49,18 +64,31 @@ select option:checked {
 }
 
 .ViewsChoice {
-  color : #fff;
-  display : flex;
-  flex-orientation : row;
+  color: #fff;
+  display: flex;
+  flex-orientation: row;
 }
 
 .View {
-  flex-grow : 1;
+  flex-grow: 1;
   border: 2px solid #fff;
-  border-radius : 10px;
-  margin : 25px;
-  padding-top : 15px;
-  padding-bottom : 15px;
-  text-align : center;
-  font-size : 24px;
+  border-radius: 10px;
+  margin: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.selectedView {
+  flex-grow: 1;
+  border: 2px solid #fff;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 25px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 24px;
+  color: #000;
 }

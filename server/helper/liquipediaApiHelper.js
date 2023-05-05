@@ -88,4 +88,8 @@ async function getValorantRanking()
 
 module.exports = { getValorantUpcomingMatches, getValorantResults, getValorantRanking };
 
-//https://www.youtube.com/watch?v=KlTrP6XYvEM&t=8s
+/*
+*
+*   TODO : FILTRER LES RESUTATS POUR 2023
+*
+*/
