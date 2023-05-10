@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const { initStreamers, getLiveStreamers } = require('./utils/TwitchUtils');
 const streamerRoutes = require('./routes/streamer');
-const gamesRoutes = require('./routes/games');
+const teamsRoutes = require('./routes/teams');
 
 
 mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mongodb.net/test', {
@@ -33,6 +33,6 @@ app.use((req, res, next) => {
 });
 
 app.use('/api/streamer', streamerRoutes);
-app.use('/api/games', gamesRoutes);
+app.use('/api/teams', teamsRoutes);
 
 module.exports = app;

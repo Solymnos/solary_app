@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Braah+One&display=swap");
-
 .App {
   background-color: #070707;
   width: 100vw;
@@ -10,7 +9,7 @@
 
 .Header {
   display: flex;
-  flex-direct: row;
+  flex-direction: row;
   height: min-content;
   padding-right: 25px;
   padding-left: 25px;
@@ -80,7 +79,7 @@ select option:checked {
   font-size: 24px;
 }
 
-.selectedView {
+.SelectedView {
   flex-grow: 1;
   border: 2px solid #fff;
   background-color: #fff;
