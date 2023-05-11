@@ -6,6 +6,10 @@ import DeleteTeamModal from './components/DeleteTeamModal';
 import './App.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PlayersContent from './components/PlayersContent';
+import ResultsContent from './components/ResultsContent';
+import UpcomingContent from './components/UpcomingContent';
+import RankingsContent from './components/RankingsContent';
 
 function App() {
 
@@ -31,11 +35,17 @@ function App() {
   useEffect(() => {
     async function updateGames() {
       const result = await getGames();
-      setGamesData(result)
+      setGamesData(result);
     }
 
     updateGames();
   }, [openModal]);
+
+  const afterGameSuppr = async (open) =>
+  {
+    setOpenModal(open);
+    setSelectedGamePos(0);
+  }
 
   useEffect(() => {
     async function updateData() {
@@ -58,7 +68,8 @@ function App() {
     }
 
     updateData();
-  }, [selectedGame, selectedView, gamesData, selectedGamePos])
+
+  }, [selectedGame, selectedView, gamesData, selectedGamePos]);
 
   const handleChangeGame = async (event) => {
     setSelectedGame(event.target.value);
@@ -88,7 +99,7 @@ function App() {
             )
           }
         </select>
-        <div onClick={() => {setOpenModal('updateTeamModal')}} className='HeaderButton'>✏️</div>
+        <div onClick={() => {console.log(selectedGame);setOpenModal('updateTeamModal')}} className='HeaderButton'>✏️</div>
         <div onClick={() => {setOpenModal('createTeamModal')}} className='HeaderButton'>➕</div>
         <div onClick={() => {setOpenModal('deleteTeamModal')}} className='HeaderButton'>🗑️</div>
       </div>
@@ -99,12 +110,15 @@ function App() {
           <div onClick={() => handleChangeView('rankings')} className={selectedView === 'rankings' ? "SelectedView" : "View"}>Rankings</div>
       </div>
       <div>
-        {contentData}
+        {selectedView === 'players' && <PlayersContent data={contentData}/>}
+        {selectedView === 'results' && <ResultsContent data={contentData}/>}
+        {selectedView === 'upcoming' && <UpcomingContent data={contentData}/>}
+        {selectedView === 'rankings' && <RankingsContent data={contentData}/>}
       </div>
       <ToastContainer position="top-center" autoClose={2500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
       {openModal === 'createTeamModal' && <CreateTeamModal closeModal={setOpenModal} toastOnMain={toast}/>}
       {openModal === 'updateTeamModal' && <UpdateTeamModal _id={gamesData[selectedGamePos]._id} _name={gamesData[selectedGamePos].name} _link={gamesData[selectedGamePos].link} _icon={gamesData[selectedGamePos].icon} closeModal={setOpenModal} toastOnMain={toast}/>}    
-      {openModal === 'deleteTeamModal' && <DeleteTeamModal _id={gamesData[selectedGamePos]._id} _name={gamesData[selectedGamePos].name} closeModal={setOpenModal} toastOnMain={toast}/>}
+      {openModal === 'deleteTeamModal' && <DeleteTeamModal _id={gamesData[selectedGamePos]._id} _name={gamesData[selectedGamePos].name} closeModal={afterGameSuppr} toastOnMain={toast}/>}
     </div>
   );
 }
