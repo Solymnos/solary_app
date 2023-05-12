@@ -109,7 +109,7 @@ function App() {
           <div onClick={() => handleChangeView('upcoming')} className={selectedView === 'upcoming' ? "SelectedView" : "View"}>Upcoming</div>
           <div onClick={() => handleChangeView('rankings')} className={selectedView === 'rankings' ? "SelectedView" : "View"}>Rankings</div>
       </div>
-      <div>
+      <div className='flex flex-grow'>
         {selectedView === 'players' && <PlayersContent data={contentData}/>}
         {selectedView === 'results' && <ResultsContent data={contentData}/>}
         {selectedView === 'upcoming' && <UpcomingContent data={contentData}/>}
