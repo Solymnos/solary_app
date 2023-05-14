@@ -68,22 +68,103 @@ export const postNewGame = async (name, link, icon) =>
     
 }
 
-export const getPlayers = async (game) =>
+export const getPlayers = async (teamId) =>
 {
-    return(API_LINK + game + 'players');
+    console.log('try get players');
+    console.log(teamId);
+    try {
+        let response = await axios({
+            method : 'get',
+            url : API_LINK + 'players',
+            params : {
+                teamId : teamId,
+            },
+            headers : {}
+        })
+        return { itWork : true, response : response.data }
+    } catch (error) {
+        return { itWork : false, response : error.response.data.error };
+    }
+}
+
+export const postNewPlayer = async (name, role, icon, teamId, type) =>
+{
+    try {
+        await axios({
+            method : 'post',
+            url : API_LINK + 'players',
+            params : {
+                teamId : teamId,
+            },
+            headers : {},
+            data : {
+                name : name,
+                role : role,
+                icon : icon,
+                type : type
+            }
+        })
+        return { itWork : true, text : name + ' a été créé'};
+    } catch (error) {
+        return { itWork : false, text : error }; 
+    }
+}
+
+export const deletePlayer = async (teamId, playerId) =>
+{
+    try {
+        await axios({
+            method : 'delete',
+            url : API_LINK + 'players',
+            params : {
+                teamId : teamId,
+            }, 
+            headers : {},
+            data: {
+                playerId : playerId,
+            }
+        })
+        return { itWork : true, text : 'Joueur supprimé'};
+    } catch (error) {
+        return { itWork : false, text : error };
+    }
+}
+
+export const updatePlayer = async (teamId, playerId, name, icon, role, type) =>
+{
+    try {
+        await axios({
+            method : 'put',
+            url : API_LINK + 'players',
+            params : {
+                teamId : teamId,
+            },
+            headers: {},
+            data : {
+                playerId : playerId,
+                name : name,
+                icon : icon,
+                role : role,
+                type : type
+            }
+        })
+        return { itWork : true, text : name + ' mis à jour'};
+    } catch (error) {
+        return { itWork : false, text : error };
+    }
 }
 
 export const getResults = async (game) =>
 {
-    return(API_LINK + game + 'results');
+    return([]);
 }
 
 export const getUpcoming = async (game) =>
 {
-    return(API_LINK + game + 'upcoming');
+    return([]);
 }
 
 export const getRankings = async (game) =>
 {
-    return(API_LINK + game + 'rankings');
+    return([]);
 }

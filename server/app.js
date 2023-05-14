@@ -4,7 +4,7 @@ const cors = require('cors');
 const { initStreamers, getLiveStreamers } = require('./utils/TwitchUtils');
 const streamerRoutes = require('./routes/streamer');
 const teamsRoutes = require('./routes/teams');
-
+const playersRoutes = require('./routes/players');
 
 mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mongodb.net/test', {
     useNewUrlParser : true,
@@ -34,5 +34,6 @@ app.use((req, res, next) => {
 
 app.use('/api/streamer', streamerRoutes);
 app.use('/api/teams', teamsRoutes);
+app.use('/api/players', playersRoutes);
 
 module.exports = app;

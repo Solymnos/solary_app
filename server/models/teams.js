@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const playerSchema = mongoose.Schema({
     name : { type : String , required : true },
     type : { type : String , required : true },
-    role : { type : String , required : true },
+    role : { type : String , required : false },
     icon : { type : String , required : true }
 });
 

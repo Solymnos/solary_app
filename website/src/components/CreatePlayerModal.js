@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import { postNewGame } from '../api/apiHelper';
+import { postNewPlayer } from '../api/apiHelper';
 import './Modal.css';
 
-function CreateTeamModal({ closeModal , toastOnMain })
+function CreatePlayerModal({ closeModal , toastOnMain, gameId, type })
 {
     const [ name, setName ] = useState('');
-    const [ link, setLink ] = useState('');
+    const [ role, setRole ] = useState('');
     const [ icon, setIcon ] = useState('');
 
     const handleNameChange = (event) =>
@@ -13,9 +13,9 @@ function CreateTeamModal({ closeModal , toastOnMain })
         setName(event.target.value);
     }
 
-    const handleLinkChange = (event) =>
+    const handleRoleChange = (event) =>
     {
-        setLink(event.target.value);
+        setRole(event.target.value);
     }
 
     const handleIconChange = (event) =>
@@ -28,14 +28,11 @@ function CreateTeamModal({ closeModal , toastOnMain })
         if (name === '')
         {
             toastOnMain.error('Nom Requis', { position : "top-center", autoClose : 2500, hideProgressBar : false, closeOnClick : true, pauseOnHover : true, draggable : true, progress : undefined, theme : "dark"});
-        } else if (link === '')
-        {
-            toastOnMain.error('Lien Requis', { position : "top-center", autoClose : 2500, hideProgressBar : false, closeOnClick : true, pauseOnHover : true, draggable : true, progress : undefined, theme : "dark"});
         } else if (icon === '')
         {
             toastOnMain.error('Icône Requise', { position : "top-center", autoClose : 2500, hideProgressBar : false, closeOnClick : true, pauseOnHover : true, draggable : true, progress : undefined, theme : "dark"});
         } else {
-            let { itWork, text } = await postNewGame(name, link, icon);
+            let { itWork, text } = await postNewPlayer(name, role, icon, gameId, type);
             if (itWork === true)
             {
                 closeModal('');
@@ -59,18 +56,18 @@ function CreateTeamModal({ closeModal , toastOnMain })
         <div className='ModalBackground'>
             <div className='ModalContainer'>
                 <div className='Title'>
-                    <h1>Création d'une nouvelle équipe</h1>
+                    <h1>Création d'un nouveau joueur</h1>
                 </div>
                 <div className='Body'>
                     <div className='Form'>
                         <input onChange={handleNameChange} placeholder='Nom'></input>
-                        <input onChange={handleLinkChange} placeholder='Lien'></input>
+                        <input onChange={handleRoleChange} placeholder='Role'></input>
                         <input onChange={handleIconChange} placeholder='Icône'></input>
                     </div>
                     <div className='Preview'>
                         <img src={imgIcon} alt='preview of the game icon'/>
                         <h1>{name}</h1>
-                        <h2>{link}</h2>
+                        <h2>{role}</h2>
                     </div>
                 </div>
                 <div className='Footer'>
@@ -82,4 +79,4 @@ function CreateTeamModal({ closeModal , toastOnMain })
     )
 }
 
-export default CreateTeamModal;
+export default CreatePlayerModal;
