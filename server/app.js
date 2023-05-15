@@ -5,6 +5,7 @@ const { initStreamers, getLiveStreamers } = require('./utils/TwitchUtils');
 const streamerRoutes = require('./routes/streamer');
 const teamsRoutes = require('./routes/teams');
 const playersRoutes = require('./routes/players');
+const resultsRoutes = require('./routes/results');
 
 mongoose.connect('mongodb+srv://Solymnos:1ncubus0Wmongodb@sly-api-db.rdzdzn5.mongodb.net/test', {
     useNewUrlParser : true,
@@ -35,5 +36,6 @@ app.use((req, res, next) => {
 app.use('/api/streamer', streamerRoutes);
 app.use('/api/teams', teamsRoutes);
 app.use('/api/players', playersRoutes);
+app.use('/api/results', resultsRoutes);
 
 module.exports = app;

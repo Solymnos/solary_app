@@ -17,6 +17,7 @@ const resultSchema = mongoose.Schema({
     team_right_icon : { type : String , required : false },
     team_right_score : { type : String , required : false },
     format : { type : String , required : false },
+    date : { type : String , required : false }
 });
 
 const upcomingSchema = mongoose.Schema({

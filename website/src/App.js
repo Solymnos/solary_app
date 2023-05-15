@@ -13,6 +13,7 @@ import RankingsContent from './components/RankingsContent';
 import CreatePlayerModal from './components/CreatePlayerModal';
 import DeletePlayerModal from './components/DeletePlayerModal';
 import UpdatePlayerModal from './components/UpdatePlayerModal';
+import CreateResultModal from './components/CreateResultModal';
 
 function App() {
 
@@ -78,27 +79,43 @@ function App() {
       console.log('BUG')
       const games = await getGames();
       setGamesData(games);
+
       if (selectedView === 'players')
       {
-        let { itWork, response } = await getPlayers((gamesData[selectedGamePos]._id));
+        let { itWork , response } = await getPlayers(gamesData[selectedGamePos]._id);
         if (itWork === true)
         {
           setContentData(response);
         } else {
           toast.error(response, { position : "top-center", autoClose : 2500, hideProgressBar : false, closeOnClick : true, pauseOnHover : true, draggable : true, progress : undefined, theme : "dark"});
         }
-      }
-      if (selectedView === 'results')
+      } else if (selectedView === 'results')
       {
-        setContentData(await getResults(gamesData[selectedGamePos].link));
-      }
-      if (selectedView === 'upcoming')
+        let { itWork , response } = await getResults(gamesData[selectedGamePos]._id);
+        if (itWork === true)
+        {
+          setContentData(response);
+        } else {
+          toast.error(response, { position : "top-center", autoClose : 2500, hideProgressBar : false, closeOnClick : true, pauseOnHover : true, draggable : true, progress : undefined, theme : "dark"});
+        }
+      } else if (selectedView === 'results')
       {
-        setContentData(await getUpcoming(gamesData[selectedGamePos].link));
-      }
-      if (selectedView === 'rankings')
+        let { itWork , response } = await getUpcoming(gamesData[selectedGamePos]._id);
+        if (itWork === true)
+        {
+          setContentData(response);
+        } else {
+          toast.error(response, { position : "top-center", autoClose : 2500, hideProgressBar : false, closeOnClick : true, pauseOnHover : true, draggable : true, progress : undefined, theme : "dark"});
+        }
+      } else if (selectedView === 'upcoming')
       {
-        setContentData(await getRankings(gamesData[selectedGamePos].link));
+        let { itWork , response } = await getRankings(gamesData[selectedGamePos]._id);
+        if (itWork === true)
+        {
+          setContentData(response);
+        } else {
+          toast.error(response, { position : "top-center", autoClose : 2500, hideProgressBar : false, closeOnClick : true, pauseOnHover : true, draggable : true, progress : undefined, theme : "dark"});
+        }
       }
     }
 
@@ -147,7 +164,7 @@ function App() {
       </div>
       <div className='flex flex-grow w-full'>
         {selectedView === 'players' && <PlayersContent data={contentData} setOpenModal={setOpenModal} setModalData={setModalData}/>}
-        
+        {selectedView === 'results' && <ResultsContent data={contentData} setOpenModal={setOpenModal} setModalData={setModalData}/>}
       </div>
       <ToastContainer position="top-center" autoClose={2500} hideProgressBar={false} newestOnTop={false} closeOnClick rtl={false} pauseOnFocusLoss draggable pauseOnHover theme="dark" />
       {openModal === 'createTeamModal' && <CreateTeamModal closeModal={setOpenModal} toastOnMain={toast}/>}
@@ -155,7 +172,8 @@ function App() {
       {openModal === 'deleteTeamModal' && <DeleteTeamModal _id={gamesData[selectedGamePos]._id} _name={gamesData[selectedGamePos].name} closeModal={afterGameSuppr} toastOnMain={toast}/>}
       {openModal === 'createPlayerModal' && <CreatePlayerModal closeModal={setOpenModal} toastOnMain={toast} gameId={gamesData[selectedGamePos]._id} type={modalData.type}/>}
       {openModal === 'deletePlayerModal' && <DeletePlayerModal closeModal={setOpenModal} toastOnMain={toast} playerId={modalData.playerId} gameId={gamesData[selectedGamePos]._id} playerName={modalData.playerName}/>}
-      {openModal === 'updatePlayerModal' &&<UpdatePlayerModal teamId={gamesData[selectedGamePos]._id} playerId={modalData.playerId} playerName={modalData.playerName} playerRole={modalData.playerRole} playerIcon={modalData.playerIcon} playerType={modalData.playerType} closeModal={setOpenModal} toastOnMain={toast}/>}
+      {openModal === 'updatePlayerModal' && <UpdatePlayerModal teamId={gamesData[selectedGamePos]._id} playerId={modalData.playerId} playerName={modalData.playerName} playerRole={modalData.playerRole} playerIcon={modalData.playerIcon} playerType={modalData.playerType} closeModal={setOpenModal} toastOnMain={toast}/>}
+      {openModal === 'createResultModal' && <CreateResultModal closeModal={setOpenModal} toastOnMain={toast} gameId={gamesData[selectedGamePos]._id} />}
     </div>
   );
 }

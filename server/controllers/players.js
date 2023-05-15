@@ -54,8 +54,6 @@ exports.updatePlayer = async (req, res, next) =>
     let teamId = req.query.teamId;
     let data = req.body;
 
-    console.log('try update');
-    console.log(data);
     try {
         let player = {
             name : data.name,
@@ -67,7 +65,6 @@ exports.updatePlayer = async (req, res, next) =>
         { $set : { 'players.$' : player}});
         res.status(200).json({ message : 'Joueur mis à jour'});
     } catch (error) {
-        console.log(error);
         res.status(400).json({ error : error });
     }
 }

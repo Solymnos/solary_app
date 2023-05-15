@@ -70,8 +70,6 @@ export const postNewGame = async (name, link, icon) =>
 
 export const getPlayers = async (teamId) =>
 {
-    console.log('try get players');
-    console.log(teamId);
     try {
         let response = await axios({
             method : 'get',
@@ -154,9 +152,98 @@ export const updatePlayer = async (teamId, playerId, name, icon, role, type) =>
     }
 }
 
-export const getResults = async (game) =>
+export const getResults = async (teamId) =>
 {
-    return([]);
+    try {
+        let response = await axios({
+            method : 'get',
+            url : API_LINK + 'results',
+            params : {
+                teamId : teamId,
+            }, 
+            headers : {}
+        })
+        return { itWork : true, response : response.data };
+    } catch (error) {
+        return { itWork : false, response : error.response.data.error };
+    }
+}
+
+
+export const postNewResult = async (teamId, type, competiton, team_left_name, team_left_icon, team_left_score, team_right_name, team_right_icon, team_right_score, format, date) =>
+{
+    try {
+        await axios({
+            method : 'post', 
+            url : API_LINK + 'results',
+            params : { teamId : teamId },
+            headers : {},
+            data : {
+                type : type,
+                competition : competiton,
+                team_left_name : team_left_name,
+                team_left_icon : team_left_icon,
+                team_left_score : team_left_score,
+                team_right_name : team_right_name,
+                team_right_icon : team_right_icon,
+                team_right_score : team_right_score,
+                format : format,
+                date : date,
+            }
+        })
+        return { itWork : true, text : 'Résultat créé'};
+    } catch (error) {
+        return { itWork : false, text : error };
+    }
+}
+
+export const deleteResult = async (teamId, resultId) => 
+{
+    try {
+        await axios({
+            method : 'delete',
+            url : API_LINK + 'results',
+            params : {
+                teamId : teamId,
+            },
+            headers : {},
+            data : {
+                resultId : resultId,
+            }
+        })
+        return { itWork : true, text : 'Résultat supprimé'};
+    } catch (error) {
+        return { itWork : false, text : error };
+    }
+}
+
+export const updateResult = async (teamId, resultId, type, competiton, team_left_name, team_left_icon, team_left_score, team_right_name, team_right_icon, team_right_score, format, date) =>
+{
+    try {
+        await axios({
+            method : 'put',
+            url : API_LINK + 'results',
+            params : {
+                teamId : teamId,
+            },
+            headers : {},
+            data : {
+                type : type,
+                competiton : competiton,
+                team_left_name : team_left_name,
+                team_left_icon : team_left_icon,
+                team_left_score : team_left_score,
+                team_right_name : team_right_name,
+                team_right_icon : team_right_icon,
+                team_right_score : team_right_score,
+                format : format,
+                date : date,
+            }
+        })
+        return { itWork : true , text : 'Résultat mis à jour' };
+    } catch (error) {
+        return { itWork : false , text : error };
+    }
 }
 
 export const getUpcoming = async (game) =>
