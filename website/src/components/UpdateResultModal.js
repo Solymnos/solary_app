@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { postNewResult } from '../api/apiHelper';
+import { updateResult } from '../api/apiHelper';
 import './Modal.css';
 
 import ReactDatePicker from 'react-datepicker';
@@ -8,20 +8,26 @@ import TimePicker from 'react-time-picker';
 import 'react-datepicker/dist/react-datepicker.css';
 import 'react-time-picker/dist/TimePicker.css';
 
-function CreateResultModal({ closeModal , toastOnMain , gameId })
+function UpdateResultModal({ closeModal , toastOnMain , teamId, resultId, _type, _competition, _teamLeftName, _teamLeftIcon, _teamLeftScore, _teamRightName, _teamRightIcon, _teamRightScore, _format, _date })
 {
-    const [ type , setType ] = useState('');
-    const [ competition , setCompetition ] = useState('');
-    const [ teamLeftName , setTeamLeftName ] = useState('');
-    const [ teamLeftIcon , setTeamLeftIcon ] = useState('');
-    const [ teamLeftScore , setTeamLeftScore ] = useState('');
-    const [ teamRightName , setTeamRightName ] = useState('');
-    const [ teamRightIcon , setTeamRightIcon ] = useState('');
-    const [ teamRightScore , setTeamRightScore ] = useState('');
-    const [ format , setFormat ] = useState('');
-    const [ date , setDate ] = useState('');
-    const [ selectedDate, setSelectedDate ] = useState(null);
-    const [ selectedTime, setSelectedTime ] = useState(null);
+    const [ type , setType ] = useState(_type);
+    const [ competition , setCompetition ] = useState(_competition);
+    const [ teamLeftName , setTeamLeftName ] = useState(_teamLeftName);
+    const [ teamLeftIcon , setTeamLeftIcon ] = useState(_teamLeftIcon);
+    const [ teamLeftScore , setTeamLeftScore ] = useState(_teamLeftScore);
+    const [ teamRightName , setTeamRightName ] = useState(_teamRightName);
+    const [ teamRightIcon , setTeamRightIcon ] = useState(_teamRightIcon);
+    const [ teamRightScore , setTeamRightScore ] = useState(_teamRightScore);
+    const [ format , setFormat ] = useState(_format);
+    const [ date , setDate ] = useState(_date);
+    const dDate = new Date(_date);
+    const year = dDate.getFullYear();
+    const month = (dDate.getMonth() + 1).toString().padStart(2, '0');
+    const day = dDate.getDate().toString().padStart(2, '0');
+    const hours = date.getHours().toString().padStart(2, '0');
+    const minutes = date.getMinutes().toString().padStart(2, '0');
+    const [ selectedDate, setSelectedDate ] = useState(`${year}-${month}-${day}`);
+    const [ selectedTime, setSelectedTime ] = useState(`${hours}:${minutes}`);
 
     const handleSDateChange = (date) =>
     {
@@ -114,7 +120,7 @@ function CreateResultModal({ closeModal , toastOnMain , gameId })
             {
                 toastOnMain.error('Date Requise', { position : "top-center", autoClose : 2500, hideProgressBar : false, closeOnClick : true, pauseOnHover : true, draggable : true, progress : undefined, theme : "dark"});
             } else {
-                let { itWork , text } = await postNewResult(gameId, type, competition, teamLeftName, teamLeftIcon, teamLeftScore, teamRightName, teamRightIcon, teamRightScore, format, date);
+                let { itWork , text } = await updateResult(teamId, resultId, type, competition, teamLeftName, teamLeftIcon, teamLeftScore, teamRightName, teamRightIcon, teamRightScore, format, date);
                 if ( itWork === true )
                 {
                     closeModal('');
@@ -156,26 +162,26 @@ function CreateResultModal({ closeModal , toastOnMain , gameId })
                 <div className='flex flex-col'>
                     <div className='flex flex-row items-center'>
                         <div className='flex flex-col items-center w-1/2 m-5'>
-                            <input onChange={handleTeamLeftName} placeholder='Nom' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
-                            <input onChange={handleTeamLeftScore} placeholder='Score' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                            <input onChange={handleTeamLeftName} placeholder={_teamLeftName} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                            <input onChange={handleTeamLeftScore} placeholder={_teamLeftScore} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
                             <div className='flex flex-row items-center w-full'>
-                                <input onChange={handleTeamLeftIcon} placeholder='Icon' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                                <input onChange={handleTeamLeftIcon} placeholder={_teamLeftIcon} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
                                 <img src={leftImgIcon} alt='left icon' className='h-20'/>
                             </div>
                         </div>
                         <div className='flex flex-col items-center w-1/2 m-5'>
-                            <input onChange={handleTeamRightName} placeholder='Nom' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
-                            <input onChange={handleTeamRightScore} placeholder='Score' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                            <input onChange={handleTeamRightName} placeholder={_teamRightName} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                            <input onChange={handleTeamRightScore} placeholder={_teamRightScore} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
                             <div className='flex flex-row items-center w-full'>
-                                <input onChange={handleTeamRightIcon} placeholder='Icon' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                                <input onChange={handleTeamRightIcon} placeholder={_teamRightIcon} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
                                 <img src={rightImgIcon} alt='right icon' className='h-20'/>
                             </div>
                         </div>
                     </div>
                     <div className='flex flex-row items-center'>
-                        <input onChange={handleCompetitionChange} placeholder='Competiton' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
-                        <input onChange={handleTypeChange} placeholder='Type' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
-                        <input onChange={handleFormatChange} placeholder='Format' className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                        <input onChange={handleCompetitionChange} placeholder={_competition} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                        <input onChange={handleTypeChange} placeholder={_type} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
+                        <input onChange={handleFormatChange} placeholder={_format} className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2'></input>
                     </div>
                     <div className='flex flex-row items-center'>
                         <ReactDatePicker className='text-white bg-black border-2 border-white p-5 rounded-xl w-full m-2' selected={selectedDate} onChange={handleSDateChange} dateFormat="dd/MM/yyyy" placeholderText="Date"/>
@@ -191,4 +197,4 @@ function CreateResultModal({ closeModal , toastOnMain , gameId })
     )
 }
 
-export default CreateResultModal;
+export default UpdateResultModal;

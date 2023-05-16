@@ -7,8 +7,8 @@ function ResultCard({ type, competition, team_left_name, team_left_icon, team_le
         <div className="relative rounded-xl overflow-hidden w-full h-full" onMouseEnter={() => setIsHovered(true)} onMouseLeave={() => setIsHovered(false)}>
             {isHovered && (
                 <div className='absolute flex-row inset-0 bg-gray-900 opacity-90 flex justify-center items-center z-10'>
-                    <button className='bg-green-500 text-black m-4 w-1/3 h-1/5 rounded-xl'>Modifier</button>
-                    <button className='bg-red-500 text-black m-4 w-1/3 h-1/5 rounded-xl'>Supprimer</button>
+                    <button onClick={() => {setModalData({_type: type, _competition : competition, _teamLeftName : team_left_name, _teamLeftIcon : team_left_icon, _teamLeftScore : team_left_score, _teamRightName : team_right_name, _teamRightIcon : team_right_icon, _teamRightScore : team_left_score, _format : format, _date : date, resultId : _id });setOpenModal('updateResultModal');}} className='bg-green-500 text-black m-4 w-1/3 h-1/5 rounded-xl'>Modifier</button>
+                    <button onClick={() => {setModalData({resultId : _id});setOpenModal('deleteResultModal');}} className='bg-red-500 text-black m-4 w-1/3 h-1/5 rounded-xl'>Supprimer</button>
                 </div>
             )}
             <div className='w-full flex flex-row mt-8'>

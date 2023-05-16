@@ -14,6 +14,8 @@ import CreatePlayerModal from './components/CreatePlayerModal';
 import DeletePlayerModal from './components/DeletePlayerModal';
 import UpdatePlayerModal from './components/UpdatePlayerModal';
 import CreateResultModal from './components/CreateResultModal';
+import DeleteResultModal from './components/DeleteResultModal';
+import UpdateResultModal from './components/UpdateResultModal';
 
 function App() {
 
@@ -174,11 +176,12 @@ function App() {
       {openModal === 'deletePlayerModal' && <DeletePlayerModal closeModal={setOpenModal} toastOnMain={toast} playerId={modalData.playerId} gameId={gamesData[selectedGamePos]._id} playerName={modalData.playerName}/>}
       {openModal === 'updatePlayerModal' && <UpdatePlayerModal teamId={gamesData[selectedGamePos]._id} playerId={modalData.playerId} playerName={modalData.playerName} playerRole={modalData.playerRole} playerIcon={modalData.playerIcon} playerType={modalData.playerType} closeModal={setOpenModal} toastOnMain={toast}/>}
       {openModal === 'createResultModal' && <CreateResultModal closeModal={setOpenModal} toastOnMain={toast} gameId={gamesData[selectedGamePos]._id} />}
+      {openModal === 'deleteResultModal' && <DeleteResultModal closeModal={setOpenModal} toastOnMain={toast} teamId={gamesData[selectedGamePos]._id} resultId={modalData.resultId}/>}
+      {openModal === 'updateResultModal' && <UpdateResultModal closeModal={setOpenModal} toastOnMain={toast} teamId={gamesData[selectedGamePos]._id} resultId={modalData.resultId} _type={modalData._type} _competition={modalData._competition} _teamLeftName={modalData._teamLeftName} _teamLeftIcon={modalData._teamLeftIcon} _teamLeftScore={modalData._teamLeftScore} _teamRightName={modalData._teamRightName} _teamRightIcon={modalData._teamRightIcon} _teamRightScore={modalData._teamRightScore} _format={modalData._format} _date={modalData._date}/>}
     </div>
   );
 }
 
-//{selectedView === 'results' && <ResultsContent data={contentData}/>}
 //{selectedView === 'upcoming' && <UpcomingContent data={contentData}/>}
 //{selectedView === 'rankings' && <RankingsContent data={contentData}/>}
 export default App;

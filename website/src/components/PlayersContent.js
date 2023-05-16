@@ -8,7 +8,7 @@ function PlayerCard({ name, role, icon, type, _id, setOpenModal, setModalData })
             {isHovered && (
                 <div className='absolute flex-col inset-0 bg-gray-900 opacity-90 flex justify-center items-center z-10'>
                     <button onClick={() => {setModalData({playerId : _id, playerName : name, playerRole : role, playerIcon : icon, playerType : type}); setOpenModal('updatePlayerModal');}} className=' bg-green-500 text-black m-4 w-1/3 h-1/5 rounded-xl'>Modifier</button>
-                    <button onClick={() => { setModalData({playerId : _id, playerName : name });setOpenModal('deletePlayerModal');}} className=' bg-red-500 text-black m-4 w-1/3 h-1/5 rounded-xl'>Supprimer</button>                    
+                    <button onClick={() => {setModalData({playerId : _id, playerName : name });setOpenModal('deletePlayerModal');}} className=' bg-red-500 text-black m-4 w-1/3 h-1/5 rounded-xl'>Supprimer</button>                    
                 </div>
             )}
             <img src={icon} alt='player icon' className='h-72 w-full object-cover rounded-t-xl'/>
