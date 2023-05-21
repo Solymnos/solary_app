@@ -3,8 +3,8 @@ const axios = require('axios');
 const Streamer = require('../models/streamer');
 const streamerCtrl = require('../controllers/streamer');
 
-const TOKEN = 'v0rjq1w40z6domi9l1hihe68uxwqh7';
-const CLIENT_ID = 'j33has88di3pik0tptp66m0kumdnir';
+const TOKEN = process.env['TOKEN'];
+const CLIENT_ID = process.env['CLIENT_ID'];
 
 const initStreamers = async () =>
 {
